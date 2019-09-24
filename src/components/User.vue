@@ -89,10 +89,10 @@
             if (response.data !== null && response.data !== undefined && response.data !== "") {
               this.imageView = "http://localhost:4941/api/v1/users/" + localStorage.otherUserId + "/photo";
             } else {
-              this.imageView = '../src/assets/default.png';
+              this.imageView = '/assets/default.png';
             }
           }, function() {
-            this.imageView = '../src/assets/default.png';
+            this.imageView = '/assets/default.png';
           });
       },
       handleOk() {

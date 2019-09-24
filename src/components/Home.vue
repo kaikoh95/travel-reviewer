@@ -4,7 +4,7 @@
       <Header style="background: #00CE00">
         <Menu mode="horizontal" style="background: #00CE00">
           <div class="layout-logo">
-            <a href="/"><img src="../assets/travel-icon.png" width="300" height="55"></a>
+            <a href="/"><img src="../../public/assets/travel-icon.png" width="300" height="55"></a>
           </div>
           <div v-if="loginFlag">
             <div class="layout-nav">
@@ -63,7 +63,7 @@
             </Card>
             <Card style="margin-top: 20px; margin-right: 100px; width: 120px; height: 120px; float: left">
               <div style="text-align:center">
-                <img src="../assets/admin-venues.png" onclick="window.location.href='/admin'" alt="No image uploaded" style="text-align: center; width: 80px; height: 80px">
+                <img src="../../public/assets/admin-venues.png" onclick="window.location.href='/admin'" alt="No image uploaded" style="text-align: center; width: 80px; height: 80px">
               </div>
               <br>
               <b>My Venues</b>
@@ -117,10 +117,10 @@
             if (response.data !== null && response.data !== undefined && response.data !== "") {
               this.imageView = "http://localhost:4941/api/v1/users/" + this.$cookies.get("UserId")+ "/photo";
             } else {
-              this.imageView = '../src/assets/default.png';
+              this.imageView = '/assets/default.png';
             }
           }, function() {
-            this.imageView = '../src/assets/default.png';
+            this.imageView = '/assets/default.png';
           });
       },
       handleLogout() {

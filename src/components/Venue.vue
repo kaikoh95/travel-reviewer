@@ -82,7 +82,7 @@ const axios = require('axios');
         <div  style="margin-top: 20px; float: center" align="center">
           <Card style="width: 240px; height: 240px">
             <div style="text-align:center">
-              <img src='../assets/default.png' style="float: left; width: 200px ; height: 200px">
+              <img src="../../public/assets/default.png" style="float: left; width: 200px ; height: 200px">
             </div>
           </Card>
         </div>
@@ -297,7 +297,7 @@ const axios = require('axios');
             }
           }
         } else {
-          return '../src/assets/default.png';
+          return '/assets/default.png';
         }
       },
       photoClicked(photo) {

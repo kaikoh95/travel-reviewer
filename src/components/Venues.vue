@@ -295,7 +295,7 @@
         if (primaryPhoto !== null) {
           return 'http://localhost:4941/api/v1/venues/' + venueId + '/photos/' + primaryPhoto;
         } else {
-          return '../src/assets/default.png';
+          return '/assets/default.png';
         }
       },
       getCategories() {
