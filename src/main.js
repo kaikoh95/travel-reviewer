@@ -101,7 +101,7 @@ const router = new VueRouter ({
 
 export const globals = new Vue({
   data: {
-    API_URL: '125.236.147.160'
+    API_URL: '172.17.0.1'
   }
 });
 
