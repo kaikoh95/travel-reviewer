@@ -101,7 +101,7 @@ const router = new VueRouter ({
 
 export const globalStore = new Vue({
   data: {
-    API_URL: '172.17.0.2'
+    API_URL: 'localhost'
   }
 });
 
