@@ -118,7 +118,7 @@ const axios = require('axios');
     },
     methods: {
       getOwn: function () {
-        this.$http.get('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId"), {
+        this.$http.get('http://{globalStore.API_URL}:4941/api/v1/users/'+ this.$cookies.get("UserId"), {
           headers: {'X-Authorization': this.$cookies.get("AuthToken")}
         })
           .then(function (response) {
@@ -143,7 +143,7 @@ const axios = require('axios');
           extension = "jpeg";
         }
         let contentType = "image/" + extension;
-        axios.put('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo',
+        axios.put('http://{globalStore.API_URL}:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo',
           this.fileName, {
             headers: {
               "X-Authorization": this.$cookies.get("AuthToken"),
@@ -158,7 +158,7 @@ const axios = require('axios');
           });
       },
       deletePhoto() {
-        this.$http.delete('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo', {
+        this.$http.delete('http://{globalStore.API_URL}:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo', {
             headers: {
               "X-Authorization": this.$cookies.get("AuthToken")
             }
@@ -172,10 +172,10 @@ const axios = require('axios');
           });
       },
       getImage() {
-        this.$http.get('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo')
+        this.$http.get('http://{globalStore.API_URL}:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo')
           .then(function (response) {
             if (response.data !== null && response.data !== undefined && response.data !== "") {
-              this.imageView = "http://API_URL:4941/api/v1/users/" + this.$cookies.get("UserId")+ "/photo";
+              this.imageView = "http://{globalStore.API_URL}:4941/api/v1/users/" + this.$cookies.get("UserId")+ "/photo";
             } else {
               this.imageView = '/assets/default.png';
             }

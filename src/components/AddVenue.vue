@@ -112,7 +112,7 @@
               "latitude": parseFloat(this.formValidate.latitude),
               "longitude": parseFloat(this.formValidate.longitude)
             };
-            this.$http.post('http://API_URL:4941/api/v1/venues', JSON.stringify(data),
+            this.$http.post('http://{globalStore.API_URL}:4941/api/v1/venues', JSON.stringify(data),
               {
                 headers: {'X-Authorization': this.$cookies.get("AuthToken"), 'Content-Type': 'application/json'}
               })
@@ -154,7 +154,7 @@
           data.append('photo', upload);
           data.append('description', '');
           data.append('makePrimary', 'false');
-          this.$http.post('http://API_URL:4941/api/v1/venues/' + localStorage.venueId + '/photos',
+          this.$http.post('http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos',
             data, {
               headers: {
                 "X-Authorization": this.$cookies.get("AuthToken"),
