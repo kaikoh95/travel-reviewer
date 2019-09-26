@@ -99,9 +99,9 @@ const router = new VueRouter ({
   mode: "history"
 });
 
-export const globals = new Vue({
+export const globalStore = new Vue({
   data: {
-    API_URL: '127.0.0.1'
+    API_URL: 'localhost'
   }
 });
 

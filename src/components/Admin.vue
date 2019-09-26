@@ -263,7 +263,6 @@
         if (this.filterSortBy === undefined) {
           this.filterSortBy = 'sortBy=STAR_RATING&';
         }
-
         let venuesUrl =
           'http://' + globalStore.API_URL + ':4941/api/v1/venues/?'+ 'adminId=' +this.$cookies.get("UserId") + '&' +
           this.queryCity + this.queryQ + this.filterCategoryId +
