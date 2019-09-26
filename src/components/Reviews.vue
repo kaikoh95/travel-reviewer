@@ -48,6 +48,7 @@
 </template>
 
 <script>
+  import {globalStore} from '../main.js';
   export default {
     data() {
       return {
@@ -114,7 +115,7 @@
     },
     methods: {
       getReviews() {
-        this.$http.get('http://localhost:4941/api/v1/venues/' + localStorage.venueId + '/reviews')
+        this.$http.get('http://API_URL:4941/api/v1/venues/' + localStorage.venueId + '/reviews')
           .then(function (response) {
             let result = response.data;
             for (let i = 0; i < result.length; i++) {
@@ -134,7 +135,7 @@
               "starRating": parseInt(this.formValidate.starRating),
               "costRating": parseInt(this.formValidate.costRating)
             };
-            this.$http.post('http://localhost:4941/api/v1/venues/'+ localStorage.venueId +'/reviews', JSON.stringify(data),
+            this.$http.post('http://API_URL:4941/api/v1/venues/'+ localStorage.venueId +'/reviews', JSON.stringify(data),
               {headers: {
                 'X-Authorization': this.$cookies.get("AuthToken"),
                 'Content-Type': 'application/json'}

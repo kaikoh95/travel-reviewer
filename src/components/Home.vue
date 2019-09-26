@@ -79,6 +79,7 @@
   </div>
 </template>
 <script>
+  import {globalStore} from '../main.js';
   export default {
     data() {
       return {
@@ -101,7 +102,7 @@
     },
     methods: {
       getUsername() {
-        this.$http.get('http://localhost:4941/api/v1/users/'+ this.$cookies.get("UserId"), {
+        this.$http.get('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId"), {
           headers: {'X-Authorization': this.$cookies.get("AuthToken")}
         })
           .then(function (response) {
@@ -112,10 +113,10 @@
           });
       },
       getImage() {
-        this.$http.get('http://localhost:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo')
+        this.$http.get('http://API_URL:4941/api/v1/users/'+ this.$cookies.get("UserId") + '/photo')
           .then(function (response) {
             if (response.data !== null && response.data !== undefined && response.data !== "") {
-              this.imageView = "http://localhost:4941/api/v1/users/" + this.$cookies.get("UserId")+ "/photo";
+              this.imageView = "http://API_URL:4941/api/v1/users/" + this.$cookies.get("UserId")+ "/photo";
             } else {
               this.imageView = '/assets/default.png';
             }
@@ -124,7 +125,7 @@
           });
       },
       handleLogout() {
-        this.$http.post("http://localhost:4941/api/v1/users/logout", "", {
+        this.$http.post("http://API_URL:4941/api/v1/users/logout", "", {
           headers: {"X-Authorization": this.$cookies.get("AuthToken")}
         })
           .then(function() {

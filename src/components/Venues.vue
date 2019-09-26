@@ -82,6 +82,7 @@
 </template>
 
 <script>
+  import {globalStore} from '../main.js';
   export default {
     data() {
       return {
@@ -262,7 +263,7 @@
         }
 
         let venuesUrl =
-          'http://localhost:4941/api/v1/venues/?'+
+          'http://API_URL:4941/api/v1/venues/?'+
           this.queryCity + this.queryQ + this.filterCategoryId +
           this.filterMinStarRating + this.filterMaxCostRating +
           this.filterSortBy;
@@ -293,13 +294,13 @@
       },
       getPhoto(venueId, primaryPhoto) {
         if (primaryPhoto !== null) {
-          return 'http://localhost:4941/api/v1/venues/' + venueId + '/photos/' + primaryPhoto;
+          return 'http://API_URL:4941/api/v1/venues/' + venueId + '/photos/' + primaryPhoto;
         } else {
           return '/assets/default.png';
         }
       },
       getCategories() {
-        this.$http.get('http://localhost:4941/api/v1/categories')
+        this.$http.get('http://API_URL:4941/api/v1/categories')
           .then(function (response) {
             this.categories = response.data;
             for (let i=0; i<this.venues.length; i++) {

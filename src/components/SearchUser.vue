@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  import {globalStore} from '../main.js';
   export default {
     data() {
       return {

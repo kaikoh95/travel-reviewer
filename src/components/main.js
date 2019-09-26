@@ -97,6 +97,12 @@ const router = new VueRouter ({
        mode: 'history'
 });
 
+export const globals = new Vue({
+  data: {
+    API_URL: '125.236.147.160'
+  }
+});
+
 new Vue ({
   el: '#app',
   router: router,

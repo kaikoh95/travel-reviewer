@@ -28,6 +28,7 @@
   </div>
 </template>
 <script>
+  import {globalStore} from '../main.js';
   export default {
     data () {
       return {
@@ -63,7 +64,7 @@
             }
           }
           this.formValidate.data1 = data1;
-          this.$http.patch('http://localhost:4941/api/v1/users/' + this.$cookies.get("UserId"), JSON.stringify(this.formValidate.data1),
+          this.$http.patch('http://API_URL:4941/api/v1/users/' + this.$cookies.get("UserId"), JSON.stringify(this.formValidate.data1),
             {headers: {'X-Authorization': this.$cookies.get("AuthToken")}})
             .then(function () {
               alert("You have changed your information!");
@@ -74,7 +75,7 @@
             })
       },
       handleOk() {
-        this.$http.post('http://localhost:4941/api/v1/users/login',
+        this.$http.post('http://API_URL:4941/api/v1/users/login',
           JSON.stringify({
             "username": this.$cookies.get("Username"),
             "password": this.formValidate.oldPassword

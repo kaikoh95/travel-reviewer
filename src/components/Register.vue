@@ -32,7 +32,8 @@
   </div>
 </template>
 <script>
-    export default {
+  import {globalStore} from '../main.js';
+  export default {
         data () {
             return {
                 formValidate: {
@@ -77,7 +78,7 @@
                           this.$Message.error('Passwords do not match!');
                         } else {
                             this.$resource['content-type'] = 'application/json';
-                            this.$http.post('http://localhost:4941/api/v1/users',
+                            this.$http.post('http://API_URL:4941/api/v1/users',
                               JSON.stringify({
                                 "username": this.formValidate.username,
                                 "email": this.formValidate.email,
@@ -86,7 +87,7 @@
                                 "password": this.formValidate.password
                               })
                             ).then(function () {
-                              this.$http.post('http://localhost:4941/api/v1/users/login',
+                              this.$http.post('http://API_URL:4941/api/v1/users/login',
                                 JSON.stringify({
                                 "username": this.formValidate.username,
                                 "password": this.formValidate.password
