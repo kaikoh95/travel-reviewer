@@ -210,7 +210,7 @@ const axios = require('axios');
     },
     methods: {
       getOne: function () {
-        this.$http.get('http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId)
+        this.$http.get('http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId)
           .then(function (response) {
             this.venue = response.data;
             this.photos = this.venue.photos;
@@ -266,7 +266,7 @@ const axios = require('axios');
           data.append('photo', upload);
           data.append('description', '');
           data.append('makePrimary', 'false');
-          this.$http.post('http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos',
+          this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/photos',
             data, {
               headers: {
                 "X-Authorization": this.$cookies.get("AuthToken"),
@@ -288,13 +288,13 @@ const axios = require('axios');
         window.location.reload();
       },
       getImage(photo) {
-        return 'http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename;
+        return 'http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename;
       },
       getPrimary() {
         if (this.photos.length > 0) {
           for (let i=0; i<this.photos.length; i++) {
             if (this.photos[i].isPrimary === true) {
-              return 'http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos/' + this.photos[i].photoFilename;
+              return 'http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/photos/' + this.photos[i].photoFilename;
             }
           }
         } else {
@@ -307,7 +307,7 @@ const axios = require('axios');
       },
       setPrimary(photo) {
         this.$http.post(
-          'http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename + '/setPrimary',
+          'http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename + '/setPrimary',
           "",
           {headers: {'X-Authorization': this.$cookies.get("AuthToken")}
           })
@@ -320,7 +320,7 @@ const axios = require('axios');
       },
       deletePhoto(photo) {
         this.$http.delete(
-          'http://{globalStore.API_URL}:4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename,
+          'http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/photos/' + photo.photoFilename,
           {headers: {'X-Authorization': this.$cookies.get("AuthToken")}
           })
           .then(function() {
@@ -358,7 +358,7 @@ const axios = require('axios');
             if(data['longitude'] !== undefined){
               data['longitude'] = parseFloat(data['longitude'])
             }
-            axios.patch('http://{globalStore.API_URL}:4941/api/v1/venues' + localStorage.venueId, JSON.stringify(data),
+            axios.patch('http://' + globalStore.API_URL + ':4941/api/v1/venues' + localStorage.venueId, JSON.stringify(data),
               {
                 headers: {'X-Authorization': this.$cookies.get("AuthToken"), 'Content-Type': 'application/json'}
               })
