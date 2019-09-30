@@ -115,7 +115,7 @@
     },
     methods: {
       getReviews() {
-        this.$http.get('http://' + globalStore.API_URL + ':4941/api/v1/venues/' + localStorage.venueId + '/reviews')
+        this.$http.get(globalStore.API_URL + '/venues/' + localStorage.venueId + '/reviews')
           .then(function (response) {
             let result = response.data;
             for (let i = 0; i < result.length; i++) {
@@ -135,7 +135,7 @@
               "starRating": parseInt(this.formValidate.starRating),
               "costRating": parseInt(this.formValidate.costRating)
             };
-            this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/venues/'+ localStorage.venueId +'/reviews', JSON.stringify(data),
+            this.$http.post(globalStore.API_URL + '/venues/'+ localStorage.venueId +'/reviews', JSON.stringify(data),
               {headers: {
                 'X-Authorization': this.$cookies.get("AuthToken"),
                 'Content-Type': 'application/json'}

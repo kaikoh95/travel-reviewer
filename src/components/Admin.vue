@@ -264,7 +264,7 @@
           this.filterSortBy = 'sortBy=STAR_RATING&';
         }
         let venuesUrl =
-          'http://' + globalStore.API_URL + ':4941/api/v1/venues/?'+ 'adminId=' +this.$cookies.get("UserId") + '&' +
+          globalStore.API_URL + '/venues/?'+ 'adminId=' +this.$cookies.get("UserId") + '&' +
           this.queryCity + this.queryQ + this.filterCategoryId +
           this.filterMinStarRating + this.filterMaxCostRating +
           this.filterSortBy;
@@ -295,13 +295,13 @@
       },
       getPhoto(venueId, primaryPhoto) {
         if (primaryPhoto !== null) {
-          return 'http://' + globalStore.API_URL + ':4941/api/v1/venues/' + venueId + '/photos/' + primaryPhoto;
+          return globalStore.API_URL + '/venues/' + venueId + '/photos/' + primaryPhoto;
         } else {
           return '/assets/default.png';
         }
       },
       getCategories() {
-        this.$http.get('http://' + globalStore.API_URL + ':4941/api/v1/categories')
+        this.$http.get(globalStore.API_URL + '/categories')
           .then(function (response) {
             this.categories = response.data;
             for (let i=0; i<this.venues.length; i++) {

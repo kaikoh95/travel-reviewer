@@ -78,7 +78,7 @@
                           this.$Message.error('Passwords do not match!');
                         } else {
                             this.$resource['content-type'] = 'application/json';
-                            this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/users',
+                            this.$http.post(globalStore.API_URL + '/users',
                               JSON.stringify({
                                 "username": this.formValidate.username,
                                 "email": this.formValidate.email,
@@ -87,7 +87,7 @@
                                 "password": this.formValidate.password
                               })
                             ).then(function () {
-                              this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/users/login',
+                              this.$http.post(globalStore.API_URL + '/users/login',
                                 JSON.stringify({
                                 "username": this.formValidate.username,
                                 "password": this.formValidate.password

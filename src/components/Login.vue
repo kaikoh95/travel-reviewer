@@ -53,7 +53,7 @@
         this.$refs[name].validate((valid) => {
           if (valid) {
             if((this.formLogin.user).indexOf("@") === -1) {
-              this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/users/login',
+              this.$http.post(globalStore.API_URL + '/users/login',
                 JSON.stringify({
                 "username": this.formLogin.user,
                 "password": this.formLogin.password
@@ -67,7 +67,7 @@
                 this.$Message.error('Invalid Credentials!');
               });
             }else{
-              this.$http.post('http://' + globalStore.API_URL + ':4941/api/v1/users/login',
+              this.$http.post(globalStore.API_URL + '/users/login',
                 JSON.stringify({
                 "email": this.formLogin.user,
                 "password": this.formLogin.password
