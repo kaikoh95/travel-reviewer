@@ -106,12 +106,12 @@
       }
     },
     mounted: function () {
+      this.getReviews();
       if (localStorage.otherUserId.toString() === this.$cookies.get("UserId").toString()) {
           this.isNotAdmin = false;
       } else {
         this.isNotAdmin = true;
       }
-      this.getReviews();
     },
     methods: {
       getReviews() {
