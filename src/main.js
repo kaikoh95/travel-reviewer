@@ -101,7 +101,8 @@ const router = new VueRouter ({
 
 export const globalStore = new Vue({
   data: {
-    API_URL: "http://localhost:4941/api/v1"
+    // API_URL: "http://localhost:4941/api/v1"
+    API_URL: "https://kai-travel-backend.herokuapp.com"
   }
 });
 
