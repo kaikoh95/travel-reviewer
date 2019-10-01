@@ -149,7 +149,6 @@ const axios = require('axios');
           this.fileName, {
             headers: {
               "X-Authorization": this.$cookies.get("AuthToken"),
-              "Content-Type": contentType
             }
           })
           .then(function () {
