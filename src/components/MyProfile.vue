@@ -139,8 +139,10 @@ const axios = require('axios');
           window.location.reload();
         }
         let extension = String(this.fileName.name.split('.').pop());
-        if (extension === "jpg" || extension === "png") {
+        if (extension === "jpg" || extension === "jpeg") {
           extension = "jpeg";
+        } else {
+          extension = "png";
         }
         let contentType = "image/" + extension;
         this.$http.put(globalStore.API_URL + '/users/'+ this.$cookies.get("UserId") + '/photo',
