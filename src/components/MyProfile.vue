@@ -143,7 +143,7 @@ const axios = require('axios');
           extension = "jpeg";
         }
         let contentType = "image/" + extension;
-        axios.put(globalStore.API_URL + '/users/'+ this.$cookies.get("UserId") + '/photo',
+        this.$http.put(globalStore.API_URL + '/users/'+ this.$cookies.get("UserId") + '/photo',
           this.fileName, {
             headers: {
               "X-Authorization": this.$cookies.get("AuthToken"),
